@@ -22,7 +22,20 @@ function draw(e)
 	ctx.beginPath();
 	ctx.moveTo(e.clientX,e.clientY);
 }
-	let canvas=document.getElementById("canva");
+
+
+function tocuchdraw(e)
+{
+	if(!painting) return
+
+	ctx.lineWidth=10;
+	ctx.lineCap='round';
+	ctx.lineTo(e.touches[0],e.touches[0]);
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.moveTo(e.clientX,e.clientY);
+}
+let canvas=document.getElementById("canva");
 
 	let ctx=canvas.getContext("2d");
 	let painting=false;
@@ -38,7 +51,7 @@ function draw(e)
 	canvas.addEventListener("touchend",stopPainting);
 	
 	canvas.addEventListener("mousemove",draw);
-	canvas.addEventListener("touchmove",draw);
+	canvas.addEventListener("touchmove",touchdraw);
 
 document.getElementById("btn").onclick=(e)=>
 {
