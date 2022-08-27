@@ -33,7 +33,7 @@ function tocuchdraw(e)
 	ctx.lineTo(e.touches[0],e.touches[0]);
 	ctx.stroke();
 	ctx.beginPath();
-	ctx.moveTo(e.clientX,e.clientY);
+	ctx.moveTo(e.touches[0],e.touches[0]);
 }
 let canvas=document.getElementById("canva");
 
